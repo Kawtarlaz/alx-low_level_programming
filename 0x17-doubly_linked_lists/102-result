@@ -1,1 +1,17 @@
-147
+def est_palindrome(n):
+    return str(n) == str(n)[::-1]
+
+def plus_grand_palindrome_produit():
+    max_palindrome = 0
+    for i in range(100, 1000):
+        for j in range(100, 1000):
+            produit = i * j
+            if est_palindrome(produit) and produit > max_palindrome:
+                max_palindrome = produit
+    return max_palindrome
+
+resultat = plus_grand_palindrome_produit()
+
+with open("102-resultat", "w") as fichier:
+    fichier.write(str(resultat))
+
